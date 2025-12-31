@@ -1,0 +1,8 @@
+{
+  "name": "mccspheres",
+  "version": "1.0.0",
+  "description": "MCC Spheres - Pharmaceutical Pellet Solutions",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0"
+  }
+}

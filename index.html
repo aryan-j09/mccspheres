@@ -13,10 +13,67 @@
     /* Engineering grid background */
     .grid-bg {
       background-image:
-        linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px);
-      background-size: 32px 32px;
+        linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
+
+    /* Smooth transitions */
+    * {
+      transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    /* Input focus styling */
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Hover effects */
+    .link-hover:hover {
+      color: #2563eb;
+    }
+
+    .border-hover:hover {
+      border-color: #3b82f6;
+      background-color: #f0f9ff;
+    }
+
+    /* Accent line animation */
+    .accent-line {
+      background: linear-gradient(to right, #3b82f6, #1e40af);
+      height: 3px;
+      transition: width 0.5s ease;
+    }
+
+    /* Text gradient */
+    .gradient-text {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Subtle fade in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .animate-fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .animate-fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .animate-fade-in:nth-child(3) { animation-delay: 0.3s; }
+    .animate-fade-in:nth-child(4) { animation-delay: 0.4s; }
   </style>
 </head>
 
@@ -25,16 +82,19 @@
   <div class="min-h-screen grid grid-cols-1 lg:grid-cols-12 grid-bg">
 
     <!-- LEFT TECH STRIP -->
-    <aside class="hidden lg:flex col-span-2 flex-col justify-between px-6 py-10 border-r border-gray-200">
-      <div class="text-xs tracking-[0.25em] text-gray-400 uppercase">
-        MCC Spheres
+    <aside class="hidden lg:flex col-span-2 flex-col justify-between px-6 py-10 border-r border-gray-200 bg-gradient-to-b from-blue-50 to-transparent">
+      <div>
+        <div class="text-xs tracking-[0.25em] text-blue-600 uppercase font-semibold">
+          MCC Spheres
+        </div>
+        <div class="mt-1 h-1 w-8 bg-blue-400 rounded-full"></div>
       </div>
 
-      <div class="text-xs text-gray-400 space-y-2">
-        <p>Pellet Coating</p>
-        <p>Excipients</p>
-        <p>Process Engineering</p>
-        <p>Pharmaceutical Applications</p>
+      <div class="text-xs text-gray-600 space-y-3">
+        <p class="link-hover cursor-default">Pellet Coating</p>
+        <p class="link-hover cursor-default">Excipients</p>
+        <p class="link-hover cursor-default">Process Engineering</p>
+        <p class="link-hover cursor-default">Pharmaceutical Applications</p>
       </div>
     </aside>
 
@@ -42,54 +102,126 @@
     <main class="col-span-1 lg:col-span-8 flex flex-col justify-center px-8 md:px-20 py-20">
 
       <!-- BRAND -->
-      <div class="flex items-baseline gap-4">
-        <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
-          MCC
-        </h1>
-        <h1 class="text-5xl md:text-7xl font-light tracking-tight">
-          Spheres
-        </h1>
+      <div class="animate-fade-in opacity-0">
+        <div class="flex items-baseline gap-3">
+          <h1 class="text-5xl md:text-8xl font-bold tracking-tight text-gray-900">
+            MCC
+          </h1>
+          <h1 class="text-5xl md:text-8xl font-light tracking-tight text-gray-600">
+            Spheres
+          </h1>
+        </div>
+
+        <div class="mt-6 h-1 w-48 accent-line"></div>
       </div>
 
-      <div class="mt-4 h-1 w-32 bg-blue-600"></div>
-
-      <p class="mt-8 text-xl text-gray-600 max-w-2xl">
-        Engineered pharmaceutical pellet solutions focused on coating processes,
-        excipient behavior, and technically sound documentation.
+      <p class="mt-10 text-lg md:text-xl text-gray-700 max-w-2xl leading-relaxed animate-fade-in opacity-0">
+        Engineered pharmaceutical pellet solutions focused on coating processes, excipient behavior, and technically sound documentation.
       </p>
 
-      <div class="mt-12 flex items-center gap-6">
-        <span class="px-6 py-2 border border-gray-300 text-sm tracking-wide uppercase">
-          Website under development
-        </span>
+      <!-- EMAIL SIGNUP -->
+      <div class="mt-14 animate-fade-in opacity-0 max-w-md">
+        <p class="text-xs uppercase tracking-widest text-gray-500 mb-4">Get notified at launch</p>
+        <form class="flex flex-col gap-3" onsubmit="handleSignup(event)">
+          <div class="flex flex-col gap-2">
+            <input 
+              type="email" 
+              placeholder="your@email.com" 
+              class="px-4 py-3 border border-gray-300 text-sm focus:border-blue-500 transition-colors"
+              required
+            />
+            <button 
+              type="submit" 
+              class="px-4 py-3 bg-blue-600 text-white text-sm font-medium uppercase tracking-wide hover:bg-blue-700 border-hover"
+            >
+              Notify Me
+            </button>
+          </div>
+          <p class="text-xs text-gray-500">We'll email you when we launch. No spam, ever.</p>
+        </form>
+      </div>
 
-        <span class="text-sm text-gray-500 uppercase tracking-widest">
-          Coming Soon
+      <div class="mt-16 animate-fade-in opacity-0">
+        <span class="px-4 py-2 border border-blue-300 bg-blue-50 text-blue-700 text-xs tracking-wide uppercase font-medium rounded">
+          Website under development
         </span>
       </div>
 
-      <p class="mt-12 text-xs text-gray-400">
+      <p class="mt-16 text-xs text-gray-400">
         © 2026 MCC Spheres
       </p>
 
     </main>
 
     <!-- RIGHT INFO PANEL -->
-    <aside class="hidden lg:flex col-span-2 items-center px-8 border-l border-gray-200">
-      <div class="text-sm text-gray-500 space-y-6">
-        <p>
-          Process-driven explanations.<br />
-          Industrial clarity.<br />
-          No marketing fluff.
-        </p>
+    <aside class="hidden lg:flex col-span-2 items-center px-8 border-l border-gray-200 bg-gradient-to-b from-transparent to-blue-50">
+      <div class="text-sm text-gray-700 space-y-8">
+        <div class="space-y-4">
+          <p class="leading-relaxed">
+            <span class="font-semibold text-gray-900">Process-driven</span> explanations.<br />
+            <span class="font-semibold text-gray-900">Industrial</span> clarity.<br />
+            <span class="font-semibold text-gray-900">No</span> marketing fluff.
+          </p>
+        </div>
 
-        <p class="text-xs uppercase tracking-widest text-gray-400">
-          Launching Soon
-        </p>
+        <div class="pt-4 border-t border-gray-200">
+          <p class="text-xs uppercase tracking-widest text-gray-500 font-medium">
+            Launching 2026
+          </p>
+        </div>
       </div>
     </aside>
 
   </div>
+
+  <script>
+    async function handleSignup(event) {
+      event.preventDefault();
+      const email = event.target.querySelector('input[type="email"]').value;
+      const button = event.target.querySelector('button');
+      const originalText = button.textContent;
+      
+      button.textContent = 'Sending...';
+      button.disabled = true;
+      
+      try {
+        const response = await fetch('/.netlify/functions/subscribe', {
+          method: 'POST',
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          button.textContent = 'Added ✓';
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+            event.target.reset();
+          }, 2000);
+        } else if (response.status === 409) {
+          button.textContent = 'Already signed up!';
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+          }, 2000);
+        } else {
+          button.textContent = 'Error - try again';
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+          }, 2000);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        button.textContent = 'Error - try again';
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.disabled = false;
+        }, 2000);
+      }
+    }
+  </script>
 
 </body>
 </html>
