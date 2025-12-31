@@ -3,41 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MCC Spheres | Coming Soon</title>
+  <title>MCC Spheres | Pharmaceutical Pellet Solutions</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <meta name="description" content="MCC Spheres – Pharmaceutical pellet coating processes. Website coming soon." />
+  <meta name="description" content="MCC Spheres – Engineered pharmaceutical pellet coating solutions and technical process insights." />
+
+  <style>
+    /* Engineering grid background */
+    .grid-bg {
+      background-image:
+        linear-gradient(to right, rgba(0,0,0,0.045) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
 
-  <div class="min-h-screen flex items-center justify-center px-6">
-    <div class="max-w-2xl text-center">
+<body class="bg-white text-gray-900">
 
-      <h1 class="text-4xl md:text-5xl font-semibold text-gray-900">
+  <div class="min-h-screen grid grid-cols-1 lg:grid-cols-12 grid-bg">
+
+    <!-- LEFT TECH STRIP -->
+    <aside class="hidden lg:flex col-span-2 flex-col justify-between px-6 py-10 border-r border-gray-200">
+      <div class="text-xs tracking-[0.25em] text-gray-400 uppercase">
         MCC Spheres
-      </h1>
+      </div>
 
-      <p class="mt-3 text-sm uppercase tracking-widest text-gray-500">
-        Pharmaceutical Pellet Solutions
+      <div class="text-xs text-gray-400 space-y-2">
+        <p>Pellet Coating</p>
+        <p>Excipients</p>
+        <p>Process Engineering</p>
+        <p>Pharmaceutical Applications</p>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="col-span-1 lg:col-span-8 flex flex-col justify-center px-8 md:px-20 py-20">
+
+      <!-- BRAND -->
+      <div class="flex items-baseline gap-4">
+        <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+          MCC
+        </h1>
+        <h1 class="text-5xl md:text-7xl font-light tracking-tight">
+          Spheres
+        </h1>
+      </div>
+
+      <div class="mt-4 h-1 w-32 bg-blue-600"></div>
+
+      <p class="mt-8 text-xl text-gray-600 max-w-2xl">
+        Engineered pharmaceutical pellet solutions focused on coating processes,
+        excipient behavior, and technically sound documentation.
       </p>
 
-      <div class="w-24 h-0.5 bg-gray-300 mx-auto my-8"></div>
+      <div class="mt-12 flex items-center gap-6">
+        <span class="px-6 py-2 border border-gray-300 text-sm tracking-wide uppercase">
+          Website under development
+        </span>
 
-      <p class="text-lg text-gray-700">
-        Website under development.<br />
-        Technical content coming soon.
-      </p>
-
-      <p class="mt-6 text-sm text-gray-500">
-        Launching soon.
-      </p>      
+        <span class="text-sm text-gray-500 uppercase tracking-widest">
+          Coming Soon
+        </span>
+      </div>
 
       <p class="mt-12 text-xs text-gray-400">
-        © 2025 MCC Spheres
+        © 2026 MCC Spheres
       </p>
 
-    </div>
+    </main>
+
+    <!-- RIGHT INFO PANEL -->
+    <aside class="hidden lg:flex col-span-2 items-center px-8 border-l border-gray-200">
+      <div class="text-sm text-gray-500 space-y-6">
+        <p>
+          Process-driven explanations.<br />
+          Industrial clarity.<br />
+          No marketing fluff.
+        </p>
+
+        <p class="text-xs uppercase tracking-widest text-gray-400">
+          Launching Soon
+        </p>
+      </div>
+    </aside>
+
   </div>
 
 </body>
